@@ -15,7 +15,7 @@ class LRUCache:
 
     def put(self, key, value):
         if key in self.dict:
-            value = self.dict.pop(key)
+            self.dict.pop(key)
         else:
             if self.remain > 0:
                 self.remain -= 1
@@ -35,6 +35,7 @@ if __name__ == "__main__":
 
     # b is at the front of this ordered dict.
     assert cache.dict.popitem(last=False) == ("b", "456")
+    cache.remain += 1
 
     # c is at the end of this ordered dict.
     cache.put("a", "123")
