@@ -34,3 +34,7 @@ def removeElement(nums, val):
         
     return length - val_count
 
+nums = [3, 2, 2, 3]
+k = removeElement(nums, 3)
+print(k)
+print(nums[:k])
