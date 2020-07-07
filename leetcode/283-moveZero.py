@@ -66,3 +66,7 @@ def moveZeroes(nums):
             # index == k, 无需交换元素
             else:
                 k += 1      
+
+nums = [0,1,0,3,12]
+moveZeroes(nums)
+nums
