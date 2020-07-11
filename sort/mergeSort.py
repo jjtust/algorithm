@@ -19,12 +19,19 @@ def _merge(left, right):
 # O(nlogn)
 def merge_sort(arr):
     """归并排序实现"""
+    
     if len(arr) == 1:
         return arr
+    
     mid = len(arr) // 2
+    
+    # 将左半边排序
     left = merge_sort(arr[:mid])
+    # 将右半边排序
     right = merge_sort(arr[mid:])
+    # 将已排好序的左右子序列合并成一个序列
     res = _merge(left, right)
+    
     return res
     
 merge_sort([1, 2, 5, 3, 4])
