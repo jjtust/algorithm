@@ -54,6 +54,35 @@ def quickSort(arr):
     high = [i for i in arr if i > key]
     middle = [i for i in arr if i == key]
     return quickSort(low) + middle + quickSort(high)
+
+
+def quickSort(arr, left, right):
+    """三路快速排序实现"""
+    if left >= right:
+        return 
+    
+    key = arr[left]
+    # [left...zero] 存放小于key的元素
+    zero = left - 1
+    # [two...right]存放大于key的元素
+    two = right + 1
+    # 索引
+    i = left
+    
+    while i < two:
+        if arr[i] == key:
+            i += 1
+        elif arr[i] < key:
+            arr[zero+1], arr[i] = arr[i], arr[zero+1]
+            i += 1
+            zero += 1
+        else:
+            # arr[i] > key
+            arr[two-1], arr[i] = arr[i], arr[two-1]
+            two -= 1
+    
+    quickSort(arr, left, zero)
+    quickSort(arr, two, right)
         
 arr = [random.randint(0, 10**4) for i in range(10**5)]
 arr = quickSort(arr)
